@@ -187,7 +187,7 @@ inserindo os DEPT
 
 
 
-5. avg é uma função que envolve grupos, então precisaremos usar o **group by** para agrupar os departamentos por nome. Usaremos também as 3 tabelas(EMP,TRABALHA,DEPT) para enconrar tanto os empregados quanto os departamentos que eles trabalham.
+5. avg é uma função que envolve grupos, então precisaremos usar o **group by** para agrupar os departamentos por nome. Usaremos também as 3 tabelas(EMP,TRABALHA,DEPT) para encontrar tanto os empregados quanto os departamentos que eles trabalham.
 
         SELECT 
             d.dnome,  AVG(salario) as media_salarial_empregados
@@ -206,19 +206,20 @@ inserindo os DEPT
 E faremos uma subquery(subconsulta) do departamento que tem o maior orcamento.
 
 
-    SELECT 
-        e.ename
-    FROM 
-        EMP e, TRABALHA t, DEPT d
-    WHERE 
-        t.eid = e.eid 
-    AND 
-        t.did = d.did
-    AND 
-        d.orcamento =  (SELECT MAX(d.orcamento)  as maior_orcamento_dept  FROM DEPT d);
+        SELECT 
+            e.ename
+        FROM 
+            EMP e, TRABALHA t, DEPT d
+        WHERE 
+            t.eid = e.eid 
+        AND 
+            t.did = d.did
+        AND 
+            d.orcamento =  (SELECT MAX(d.orcamento)  as maior_orcamento_dept  FROM DEPT d);
 
 
-7. Para saber se um departamento tem alguém que trabalha nele, pesquisaremos se o código exclusivo da tabela DEPT(**chave primária**) está na tabela TRABALHA, fazendo uma ordenação decrescente pelo nome do departamento.
+7. Para saber se um departamento tem alguém que trabalha nele, pesquisaremos 
+qual chave primaria de DEPT(**chave primária**) não se encontra na tabela(ou entidade) TRABALHA, fazendo uma ordenação decrescente pelo nome do departamento.
 
         SELECT
             d.dnome
