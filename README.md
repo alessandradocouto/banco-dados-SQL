@@ -6,7 +6,7 @@
 ![imagem do diagrama da Questão 1](https://raw.githubusercontent.com/alessandradocouto/Exercicios-Banco-Dados/master/Q_BD.png)
 
 
-1. Vamos separar todas as tabelas com seus atributos e sublinhando sua respectiva chave primária(pk):
+1. Vamos separar todas as tabelas com seus atributos e indicando sua respectiva chave primária(pk):
 
 	cliente(**cpf**, nome,senha,data_nasc)
 
