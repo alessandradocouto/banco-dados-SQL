@@ -19,10 +19,10 @@
 2. Vamos analisar o relacionamento entre essas tabelas:
 
 	a. Relacionamento entre *cliente* e *reserva*:
-        (1, 1): Cada reserva é feita por um único cliente.
-	    (0, n): Cada cliente possui nenhuma ou muitas reservas. 	
+     - (1, 1): Cada reserva é feita por um único cliente.
+	 - (0, n): Cada cliente possui nenhuma ou muitas reservas. 	
 		
-	Identificamos que reserva tem uma chave estrangeira(fk) vinda de cliente.
+	Identificamos que reserva tem uma chave estrangeira(fk) vinda de cliente, o **n** da entidade Cliente indo para a entidade Reserva.
 	
     Cliente não tem chave estrangeira(fk), apenas sua chave primária(pk) mesmo.
         
@@ -32,28 +32,28 @@
         cpf referencia cliente
 
 	b. Relacionamento entre *reserva* e *quarto*:
-	(1, n): Cada reserva é obrigatória ter 1 quarto ou vários quartos.
-	(0, n): Cada quarto pode ter nenhuma ou várias reservas.
+	 - 1, n): Cada reserva é obrigatória ter 1 quarto ou vários quartos.
+	 - (0, n): Cada quarto pode ter nenhuma ou várias reservas.
 		
 	Repare que nesse tipo de relação que tem muitos quartos(n) e muitas reservas(n), é necessário criar uma outra tabela com os códigos exclusivos(chaves primarias, pk's) de cada tabela, pois esses 2 códigos são chaves primária e estrangeira ao mesmo tempo(serão codigos únicos, mas também vindas de outra tabela).
 	
     reservaquarto(**codigoreserva**, **codigoquarto**)
-        codigoreserva referencia reserva
-        codigoquarto referencia quarto
+       codigoreserva referencia reserva
+       codigoquarto referencia quarto
 
 3. A nova tabela do diagrama ER fica assim:
 
-    cliente(**cpf**, nome,senha,data_nasc)
+cliente(**cpf**, nome,senha,data_nasc)
 
-    reserva(**codigo**, cpf, check-in,check-out,num_hospede,tipo,preco)
-	    cpf referencia cliente
+reserva(**codigo**, cpf, check-in,check-out,num_hospede,tipo,preco)
+    cpf referencia cliente
 
-    quarto(**codigo**, descricao,capacidade,diaria)
+quarto(**codigo**, descricao,capacidade,diaria)
 
-    reservaquarto(**codigoreserva**, **codigoquarto**)
-        codigoreserva referencia reserva
-        codigoquarto referencia quarto
-        
+reservaquarto(**codigoreserva**, **codigoquarto**)
+    codigoreserva referencia reserva
+    codigoquarto referencia quarto
+
 
 
 
