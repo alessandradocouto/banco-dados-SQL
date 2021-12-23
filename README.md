@@ -8,12 +8,12 @@
 
 1. Vamos separar todas as tabelas com seus atributos e indicando sua respectiva chave primária(pk):
 
-	cliente(**cpf**, nome,senha,data_nasc)
+	    cliente(**cpf**, nome,senha,data_nasc)
 
-	reserva(**codigo**, cpf, check-in,check-out,num_hospede,tipo,preco)
-		cpf referencia cliente
+	    reserva(**codigo**, cpf, check-in,check-out,num_hospede,tipo,preco)
+		    cpf referencia cliente
 
-	quarto(**codigo**, descricao,capacidade,diaria)
+	    quarto(**codigo**, descricao,capacidade,diaria)
 
 
 2. Vamos analisar o relacionamento entre essas tabelas:
@@ -60,14 +60,14 @@
 
 - Questão 2 Observe a tabela a seguir com as chaves primárias sublinhadas. 
 
-EMP(**eid**: integer, ename: string, idade: integer, salario: real)
+    EMP(**eid**: integer, ename: string, idade: integer, salario: real)
 
-DEPT (**did**: integer, dnome: string, orçamento: real, gerenteid: integer)
-	gerenteid referencia EMP(eid)
+    DEPT (**did**: integer, dnome: string, orçamento: real, gerenteid: integer)
+	    gerenteid referencia EMP(eid)
 
-TRABALHA (**eid**: integer, did: integer, cargahoraria: integer)
-    eid referencia EMP(eid)
-	did referencia DEPT(did)
+    TRABALHA (**eid**: integer, did: integer, cargahoraria: integer)
+        eid referencia EMP(eid)
+	    did referencia DEPT(did)
 
 
 1. Apresente o diagrama ER referente e esse esquema.
