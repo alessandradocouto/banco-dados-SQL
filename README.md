@@ -92,16 +92,16 @@ Além disso, há uma relação especial entre EMP e DEPT com a chave estrangeira
 
 2. Podemos ver que a tabela TRABALHA tem chave estrangeira e também chave primária **did** que referencia a tabela DEPT.
 
-        TRABALHA(eid:integer, did:integer, cargahoraria: integer)
+        TRABALHA(eid:int, did:int, cargahoraria: int)
             id referencia EMP(eid)
             did referencia DEPT(did)
 
 
 3. Vamos mostrar os bancos de dados disponiveis(show), em seguida criaremos (create) e entraremos(use) no banco para inserir os dados:
 
-    `SHOW databases;`
-    `CREATE DATABASE Empresa_TechX;`
-    `USE Empresa_TechX;`
+        SHOW databases;
+        CREATE DATABASE Empresa_TechX;
+        USE Empresa_TechX;
 
 
 a. Criando todas as tabelas do esquema relacional com comando sql:
@@ -135,16 +135,15 @@ a. Criando todas as tabelas do esquema relacional com comando sql:
 
 b. Inserindo os dados no banco para teste, há diversas maneiras de fazer isso, mas vamos exercitar os comandos básicos de SQL:
 
-
-/* entrando no banco criado */
+ entrando no banco criado 
 
 `USE Empresa_TechX;`
 
-/* para mostrar as tabelas(entidades) criadas */
+ para mostrar as tabelas(entidades) criadas 
 
 `SHOW TABLES;`
 
-/* inserindo 9 empregados no sql: */
+ inserindo 9 empregados no sql: 
 
 `INSERT INTO EMP (eid,ename,idade,salario) VALUES (117, 'Fabiana Silva Lima', 32, 3000);`
 `INSERT INTO EMP (eid,ename,idade,salario) VALUES (118, 'Jorginho do Sul', 65, 2500);`
@@ -155,12 +154,14 @@ b. Inserindo os dados no banco para teste, há diversas maneiras de fazer isso, 
 `INSERT INTO EMP (eid,ename,idade,salario) VALUES (123, 'Mario Xavier', 58, 3300);`
 `INSERT INTO EMP (eid,ename,idade,salario) VALUES (124, 'Xanna Alves', 29, 5000);`
 
-/* erro, vamos consertar o salario do empregado de codigo(eid) 122 para 2900 */
-/* faremos isso atualizando a tabela  EMP com o dado certo passando um filtro desse empregado que é o eid especifico(where) */
+
+erro, vamos consertar o salario do empregado de codigo(eid) 122 para 2900 
+ 
+faremos isso atualizando a tabela  EMP com o dado certo passando um filtro desse empregado que é o eid especifico(where)
 
 `UPDATE EMP SET salario = 2900 WHERE eid = 122;`
 
-/* inserindo os DEPT  */
+inserindo os DEPT 
 
 `INSERT TO DEPT(did,dnome,orcamento,gerenteid) VALUES (1,'InfraEstrutura', 45400700, 118);`
 `INSERT TO DEPT(did,dnome,orcamento,gerenteid) VALUES (2,'Saude', 58900200, 119);`
@@ -168,7 +169,7 @@ b. Inserindo os dados no banco para teste, há diversas maneiras de fazer isso, 
 `INSERT TO DEPT(did,dnome,orcamento,gerenteid) VALUES (4,'Comunicacao', 8200990,null);`
 `INSERT TO DEPT(did,dnome,orcamento,gerenteid) VALUES (5,'Minas_Energia', 18340690,null);`
 
-/*  inserindo na tabela TRABALHA */ 
+ inserindo na tabela TRABALHA 
 
 `INSERT INTO TRABALHA (eid, did,cargahoraria) VALUES (117, 1, 40);`
 `INSERT INTO TRABALHA (eid,ename,idade,salario) VALUES (118, 1, 40);`
