@@ -145,14 +145,14 @@ b. Inserindo os dados no banco para teste, há diversas maneiras de fazer isso, 
 
  inserindo 9 empregados no sql: 
 
-`INSERT INTO EMP (eid,ename,idade,salario) VALUES (117, 'Fabiana Silva Lima', 32, 3000);`
-`INSERT INTO EMP (eid,ename,idade,salario) VALUES (118, 'Jorginho do Sul', 65, 2500);`
-`INSERT INTO EMP (eid,ename,idade,salario) VALUES (119, 'Marco Dias', 28, 1980);`
-`INSERT INTO EMP (eid,ename,idade,salario) VALUES (120, 'Julia Costa da Serra', 33, 4500);`
-`INSERT INTO EMP (eid,ename,idade,salario) VALUES (121, 'Andre Verissimo', 23, 4400);`
-`INSERT INTO EMP (eid,ename,idade,salario) VALUES (122, 'Sophia Fernandes', 47, 5900);`
-`INSERT INTO EMP (eid,ename,idade,salario) VALUES (123, 'Mario Xavier', 58, 3300);`
-`INSERT INTO EMP (eid,ename,idade,salario) VALUES (124, 'Xanna Alves', 29, 5000);`
+    INSERT INTO EMP (eid,ename,idade,salario) VALUES (117, 'Fabiana Silva Lima', 32, 3000);
+    INSERT INTO EMP (eid,ename,idade,salario) VALUES (118, 'Jorginho do Sul', 65, 2500);
+    INSERT INTO EMP (eid,ename,idade,salario) VALUES (119, 'Marco Dias', 28, 1980);
+    INSERT INTO EMP (eid,ename,idade,salario) VALUES (120, 'Julia Costa da Serra', 33, 4500);
+    INSERT INTO EMP (eid,ename,idade,salario) VALUES (121, 'Andre Verissimo', 23, 4400);
+    INSERT INTO EMP (eid,ename,idade,salario) VALUES (122, 'Sophia Fernandes', 47, 5900);
+    INSERT INTO EMP (eid,ename,idade,salario) VALUES (123, 'Mario Xavier', 58, 3300);
+    INSERT INTO EMP (eid,ename,idade,salario) VALUES (124, 'Xanna Alves', 29, 5000);
 
 
 erro, vamos consertar o salario do empregado de codigo(eid) 122 para 2900 
@@ -163,21 +163,21 @@ faremos isso atualizando a tabela  EMP com o dado certo passando um filtro desse
 
 inserindo os DEPT 
 
-`INSERT TO DEPT(did,dnome,orcamento,gerenteid) VALUES (1,'InfraEstrutura', 45400700, 118);`
-`INSERT TO DEPT(did,dnome,orcamento,gerenteid) VALUES (2,'Saude', 58900200, 119);`
-`INSERT TO DEPT(did,dnome,orcamento,gerenteid) VALUES (3,'Transporte', 13600100, 121);`
-`INSERT TO DEPT(did,dnome,orcamento,gerenteid) VALUES (4,'Comunicacao', 8200990,null);`
-`INSERT TO DEPT(did,dnome,orcamento,gerenteid) VALUES (5,'Minas_Energia', 18340690,null);`
+    INSERT TO DEPT(did,dnome,orcamento,gerenteid) VALUES (1,'InfraEstrutura', 45400700, 118);
+    INSERT TO DEPT(did,dnome,orcamento,gerenteid) VALUES (2,'Saude', 58900200, 119);
+    INSERT TO DEPT(did,dnome,orcamento,gerenteid) VALUES (3,'Transporte', 13600100, 121);
+    INSERT TO DEPT(did,dnome,orcamento,gerenteid) VALUES (4,'Comunicacao', 8200990,null);
+    INSERT TO DEPT(did,dnome,orcamento,gerenteid) VALUES (5,'Minas_Energia', 18340690,null);
 
  inserindo na tabela TRABALHA 
 
-`INSERT INTO TRABALHA (eid, did,cargahoraria) VALUES (117, 1, 40);`
-`INSERT INTO TRABALHA (eid,ename,idade,salario) VALUES (118, 1, 40);`
-`INSERT INTO TRABALHA (eid,ename,idade,salario) VALUES (122, 1, 44);`
-`INSERT INTO TRABALHA (eid,ename,idade,salario) VALUES (119, 2, 44);`
-`INSERT INTO TRABALHA (eid,ename,idade,salario) VALUES (120, 2, 44);`
-`INSERT INTO TRABALHA (eid,ename,idade,salario) VALUES (123, 2, 40);`
-`INSERT INTO TRABALHA (eid,ename,idade,salario) VALUES (121, 3, 40);`
+    INSERT INTO TRABALHA (eid, did,cargahoraria) VALUES (117, 1, 40);
+    INSERT INTO TRABALHA (eid,ename,idade,salario) VALUES (118, 1, 40);
+    INSERT INTO TRABALHA (eid,ename,idade,salario) VALUES (122, 1, 44);
+    INSERT INTO TRABALHA (eid,ename,idade,salario) VALUES (119, 2, 44);
+    INSERT INTO TRABALHA (eid,ename,idade,salario) VALUES (120, 2, 44);
+    INSERT INTO TRABALHA (eid,ename,idade,salario) VALUES (123, 2, 40);
+    INSERT INTO TRABALHA (eid,ename,idade,salario) VALUES (121, 3, 40);
 
 
 
