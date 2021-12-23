@@ -8,12 +8,12 @@
 
 1. Vamos separar todas as tabelas com seus atributos e indicando sua respectiva chave primária(pk):
 
-	cliente(**cpf**, nome,senha,data_nasc)
+        cliente(**cpf**, nome,senha,data_nasc)
 
-	reserva(**codigo**, cpf, check-in,check-out,num_hospede,tipo,preco)
-	    cpf referencia cliente
+        reserva(**codigo**, cpf, check-in,check-out,num_hospede,tipo,preco)
+            cpf referencia cliente
 
-	quarto(**codigo**, descricao,capacidade,diaria)
+        quarto(**codigo**, descricao,capacidade,diaria)
 
 
 2. Vamos analisar o relacionamento entre essas tabelas:
@@ -26,10 +26,10 @@
 	
     Cliente não tem chave estrangeira(fk), apenas sua chave primária(pk) mesmo.
         
-    cliente(**cpf**, nome,senha,data_nasc)
+        cliente(**cpf**, nome,senha,data_nasc)
 
-    reserva(**codigo**, cpf, check-in,check-out,num_hospede,tipo,preco)
-        cpf referencia cliente
+        reserva(**codigo**, cpf, check-in,check-out,num_hospede,tipo,preco)
+            cpf referencia cliente
 
 	b. Relacionamento entre *reserva* e *quarto*:
 	 - 1, n): Cada reserva é obrigatória ter 1 quarto ou vários quartos.
@@ -37,22 +37,22 @@
 		
 	Repare que nesse tipo de relação que tem muitos quartos(n) e muitas reservas(n), é necessário criar uma outra tabela com os códigos exclusivos(chaves primarias, pk's) de cada tabela, pois esses 2 códigos são chaves primária e estrangeira ao mesmo tempo(serão codigos únicos, mas também vindas de outra tabela).
 	
-    reservaquarto(**codigoreserva**, **codigoquarto**)
-       codigoreserva referencia reserva
-       codigoquarto referencia quarto
+        reservaquarto(**codigoreserva**, **codigoquarto**)
+            codigoreserva referencia reserva
+            codigoquarto referencia quarto
 
 3. A nova tabela do diagrama ER fica assim:
 
-cliente(**cpf**, nome,senha,data_nasc)
+        cliente(**cpf**,nome,senha,data_nasc)
 
-reserva(**codigo**, cpf, check-in,check-out,num_hospede,tipo,preco)
-    cpf referencia cliente
+        reserva(**codigo**,cpf,check-in,check-out,num_hospede,tipo,preco)
+            cpf referencia cliente
 
-quarto(**codigo**, descricao,capacidade,diaria)
+        quarto(**codigo**,descricao,capacidade,diaria)
 
-reservaquarto(**codigoreserva**, **codigoquarto**)
-    codigoreserva referencia reserva
-    codigoquarto referencia quarto
+        reservaquarto(**codigoreserva**, **codigoquarto**)
+            codigoreserva referencia reserva
+            codigoquarto referencia quarto
 
 
 
@@ -60,14 +60,14 @@ reservaquarto(**codigoreserva**, **codigoquarto**)
 
 ### Questão 2: Observe a tabela a seguir com as chaves primárias indicadas. 
 
-EMP(**eid**: integer, ename: string, idade: integer, salario: real)
+    EMP(**eid**: int, ename: string, idade: int, salario: real)
 
-DEPT (**did**: integer, dnome: string, orçamento: real, gerenteid: integer)
-    gerenteid referencia EMP(eid)
+    DEPT (**did**: int, dnome: string, orçamento: real, gerenteid: int)
+        gerenteid referencia EMP(eid)
 
-TRABALHA (**eid**: integer, did: integer, cargahoraria: integer)
-    eid referencia EMP(eid)
-    did referencia DEPT(did)
+    TRABALHA (**eid**: int, did: int, cargahoraria: int)
+        eid referencia EMP(eid)
+        did referencia DEPT(did)
 
 
 1. Apresente o diagrama ER referente e esse esquema.
