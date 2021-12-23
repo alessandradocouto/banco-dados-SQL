@@ -92,9 +92,9 @@ Além disso, há uma relação especial entre EMP e DEPT com a chave estrangeira
 
 2. Podemos ver que a tabela TRABALHA tem chave estrangeira e também chave primária **did** que referencia a tabela DEPT.
 
-    TRABALHA(eid:integer, did:integer, cargahoraria: integer)
-	    id referencia EMP(eid)
-	    did referencia DEPT(did)
+        TRABALHA(eid:integer, did:integer, cargahoraria: integer)
+            id referencia EMP(eid)
+            did referencia DEPT(did)
 
 
 3. Vamos mostrar os bancos de dados disponiveis(show), em seguida criaremos (create) e entraremos(use) no banco para inserir os dados:
@@ -106,31 +106,31 @@ Além disso, há uma relação especial entre EMP e DEPT com a chave estrangeira
 
 a. Criando todas as tabelas do esquema relacional com comando sql:
 
-CREATE TABLE EMP (
-    eid INTEGER NOT NULL AUTO_INCREMENT,
-    ename VARCHAR(45),
-    idade INTEGER,
-    salario DECIMAL(15,2),
-    CONSTRAINT EMP_pk PRIMARY KEY(eid)
-);
+    CREATE TABLE EMP (
+        eid INTEGER NOT NULL AUTO_INCREMENT,
+        ename VARCHAR(45),
+        idade INTEGER,
+        salario DECIMAL(15,2),
+        CONSTRAINT EMP_pk PRIMARY KEY(eid)
+    );
 
-CREATE TABLE DEPT (
-    did INTEGER NOT NULL AUTO_INCREMENT,
-    dnome VARCHAR(45),
-   orcamento DECIMAL(15,2),
-   gerenteid INTEGER,
-    PRIMARY KEY(did),
-    CONSTRAINT DEPT_EMP_fk FOREIGN KEY(gerenteid) REFERENCES EMP(eid) ON DELETE NO ACTION
-);
+    CREATE TABLE DEPT (
+        did INTEGER NOT NULL AUTO_INCREMENT,
+        dnome VARCHAR(45),
+    orcamento DECIMAL(15,2),
+    gerenteid INTEGER,
+        PRIMARY KEY(did),
+        CONSTRAINT DEPT_EMP_fk FOREIGN KEY(gerenteid) REFERENCES EMP(eid) ON DELETE NO ACTION
+    );
 
-CREATE TABLE TRABALHA (
-    eid INTEGER NOT NULL AUTO_INCREMENT,
-    did INTEGER NOT NULL,
-    cargahoraria INTEGER,
-    PRIMARY KEY(eid, did),
-    CONSTRAINT TRABALHA_EMP_fk FOREIGN KEY(eid) REFERENCES EMP(eid) ON DELETE CASCADE,
-    CONSTRAINT TRABALHA_DEPT_fk FOREIGN KEY(did) REFERENCES DEPT(did) ON DELETE CASCADE
-);
+    CREATE TABLE TRABALHA (
+        eid INTEGER NOT NULL AUTO_INCREMENT,
+        did INTEGER NOT NULL,
+        cargahoraria INTEGER,
+        PRIMARY KEY(eid, did),
+        CONSTRAINT TRABALHA_EMP_fk FOREIGN KEY(eid) REFERENCES EMP(eid) ON DELETE CASCADE,
+        CONSTRAINT TRABALHA_DEPT_fk FOREIGN KEY(did) REFERENCES DEPT(did) ON DELETE CASCADE
+    );
 
 
 b. Inserindo os dados no banco para teste, há diversas maneiras de fazer isso, mas vamos exercitar os comandos básicos de SQL:
@@ -188,16 +188,16 @@ b. Inserindo os dados no banco para teste, há diversas maneiras de fazer isso, 
 
 5. avg é uma função que envolve grupos, então precisaremos usar o **group by** para agrupar os departamentos por nome. Usaremos também as 3 tabelas(EMP,TRABALHA,DEPT) para enconrar tanto os empregados quanto os departamentos que eles trabalham.
 
-SELECT 
-	d.dnome,  AVG(salario) as media_salarial_empregados
-FROM 
-	EMP e, DEPT d, TRABALHA t
-WHERE 
-	e.eid = t.eid
-AND 
-	d.did = t.did
-GROUP BY 
-	(d.dnome);
+        SELECT 
+            d.dnome,  AVG(salario) as media_salarial_empregados
+        FROM 
+            EMP e, DEPT d, TRABALHA t
+        WHERE 
+            e.eid = t.eid
+        AND 
+            d.did = t.did
+        GROUP BY 
+            (d.dnome);
 
 
 
@@ -205,24 +205,24 @@ GROUP BY
 E faremos uma subquery(subconsulta) do departamento que tem o maior orcamento.
 
 
-SELECT 
-	e.ename
-FROM 
-	EMP e, TRABALHA t, DEPT d
-WHERE 
-	t.eid = e.eid 
-AND 
-	t.did = d.did
-AND 
-	d.orcamento =  (SELECT MAX(d.orcamento)  as maior_orcamento_dept  FROM DEPT d);
+    SELECT 
+        e.ename
+    FROM 
+        EMP e, TRABALHA t, DEPT d
+    WHERE 
+        t.eid = e.eid 
+    AND 
+        t.did = d.did
+    AND 
+        d.orcamento =  (SELECT MAX(d.orcamento)  as maior_orcamento_dept  FROM DEPT d);
 
 
 7. Para saber se um departamento tem alguém que trabalha nele, pesquisaremos se o código exclusivo da tabela DEPT(**chave primária**) está na tabela TRABALHA, fazendo uma ordenação decrescente pelo nome do departamento.
 
-SELECT
-	d.dnome
-FROM
-	DEPT d
-WHERE
-	d.did NOT IN (select t.did from TRABALHA t)
-ORDER BY d.dnome DESC;
+        SELECT
+            d.dnome
+        FROM
+            DEPT d
+        WHERE
+            d.did NOT IN (select t.did from TRABALHA t)
+        ORDER BY d.dnome DESC;
