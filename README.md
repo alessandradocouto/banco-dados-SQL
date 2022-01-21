@@ -1,4 +1,4 @@
-# Exercicios-Banco-Dados
+# Exercicios-Banco-Dados UFF
 ## Banco de Dados Relacionais SQL
 
 ### Questão 1: Construa um esquema relacional equivalente a este diagrama ER, indicando chaves primárias e estrangeiras.
