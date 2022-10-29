@@ -1,7 +1,5 @@
 # Modelagem e Banco Dados SQL
 
-# Banco Dados SQL
-
 ## Agregação x Composição
 
 [!UML e Padrões de Projeto no slidshare.net, em português](https://pt.slideshare.net/viniciusdepaula37/uml-e-padres-de-projeto-aula-02)
